@@ -1,0 +1,6 @@
+class Injector {
+
+  call(){
+    
+  }
+}
