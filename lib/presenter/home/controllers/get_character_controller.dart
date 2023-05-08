@@ -1,5 +1,5 @@
+
 import 'package:com_mottu_marvel/app/app.dart';
-import 'package:com_mottu_marvel/features/home/domain/entities/character.dart';
 import 'package:com_mottu_marvel/features/home/domain/entities/marvel_response_entity.dart';
 import 'package:com_mottu_marvel/features/home/domain/usecase/marvel_response_usecase.dart';
 
@@ -22,15 +22,7 @@ class GetCharacterController {
     }
     setLoadState(false);
   }
-List<Character> filterCharacters(List<Character> characters, String query) {
-  List<Character> filteredList = [];
-  for (var character in characters) {
-    if (character.name.toLowerCase().contains(query.toLowerCase())) {
-      filteredList.add(character);
-    }
-  }
-  return filteredList;
-}
+
    
 }
   

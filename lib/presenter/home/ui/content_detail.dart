@@ -23,7 +23,7 @@ class _ContentDetailState extends State<ContentDetail> {
       appBar: AppBar(
         centerTitle: true,
         title: BaseText(
-          'Mottu Marvel',
+          'Detalhes',
           sampleTextStyle: SampleTextStyle.cardTitle().getStyle(color: DSColors.black),
         ),
         backgroundColor: DSColors.white,
@@ -35,25 +35,28 @@ class _ContentDetailState extends State<ContentDetail> {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            height: 240,
-            width: double.infinity,
-            color: DSColors.gray,
-            child: Image.network(widget.marvelResponseEntity.listCharacters[widget.index].thumbnailUrl),
-          ),
-          const SizedBox(height: 20),
-          BaseText(widget.marvelResponseEntity.listCharacters[widget.index].name,
-              sampleTextStyle: SampleTextStyle.cardTitle().getStyle(color: DSColors.black)),
-          const SizedBox(height: 16),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: BaseText(widget.marvelResponseEntity.listCharacters[widget.index].description,
-                sampleTextStyle: SampleTextStyle.cardDescription().getStyle(color: DSColors.gray)),
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 240,
+              width: double.infinity,
+              color: DSColors.gray,
+              child: Image.network(widget.marvelResponseEntity.listCharacters[widget.index].thumbnailUrl),
+            ),
+            const SizedBox(height: 16),
+            //CARD NAME
+            BaseText(widget.marvelResponseEntity.listCharacters[widget.index].name,
+                sampleTextStyle: SampleTextStyle.cardTitle().getStyle(color: DSColors.black)),
+            const SizedBox(height: 10),
+            //CARD DESCRIPTION
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: BaseText(widget.marvelResponseEntity.listCharacters[widget.index].description,
+                  sampleTextStyle: SampleTextStyle.cardDescription().getStyle(color: DSColors.gray)),
+            ),
+          ],
+        ),
       ),
     );
   }

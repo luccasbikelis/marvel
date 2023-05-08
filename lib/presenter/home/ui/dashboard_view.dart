@@ -4,7 +4,7 @@ import 'package:com_mottu_marvel/design_system/filter/filter_widget.dart';
 import 'package:com_mottu_marvel/design_system/mottu_button/mottu_button.dart';
 import 'package:com_mottu_marvel/design_system/text/base_text.dart';
 import 'package:com_mottu_marvel/design_system/text/text_style/sample_text_style.dart';
-import 'package:com_mottu_marvel/presenter/home/controllers/get_character.dart';
+import 'package:com_mottu_marvel/presenter/home/controllers/get_character_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -77,9 +77,9 @@ class _DashboardViewState extends State<DashboardView> {
                   if (character == null) {
                     return const SizedBox.shrink();
                   }
- final filteredCharacters = character.listCharacters
-                      .where((c) => c.name.toLowerCase().contains(_searchText.toLowerCase()))
-                      .toList();
+final filteredCharacters = character.listCharacters
+  .where((c) => c.name.toLowerCase().contains(_searchText.toLowerCase()))
+  .toList();
 
                   
                   return ListView.builder(
@@ -105,11 +105,12 @@ class _DashboardViewState extends State<DashboardView> {
                             ),
                           );
                         } else {
+                          final fullIndex = character.listCharacters.indexOf(filteredCharacters[index]);
                           return Padding(
                             padding: const EdgeInsets.all(20.0),
                             child: CardWidget(
                               marvelResponseEntity: character,
-                              index: index,
+                              index: fullIndex,
                               name: filteredCharacters[index].name,
                               image: filteredCharacters[index].thumbnailUrl,
                             ),
