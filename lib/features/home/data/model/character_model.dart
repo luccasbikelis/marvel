@@ -25,6 +25,16 @@ class CharacterModel extends Character implements Model {
       name: json['name'] ?? '',
       description: json['description'] ?? '',
       thumbnailUrl: json['thumbnail']['path'] + '.' + json['thumbnail']['extension'],
+      // thumbnailUrl:  json['thumbnail'] ?? ''
+    );
+  }
+   factory CharacterModel.fromSharedPreferencesJson(Map<String, dynamic> json) {
+    return CharacterModel(
+      id: json['id'] ?? 0,
+      name: json['name'] ?? '',
+      description: json['description'] ?? '',
+      // thumbnailUrl: json['thumbnail']['path'] + '.' + json['thumbnail']['extension'],
+      thumbnailUrl:  json['thumbnail'] ?? ''
     );
   }
 

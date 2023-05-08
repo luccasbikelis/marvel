@@ -11,6 +11,12 @@ class SharedPreferencesFacade {
     return sp.get(key) ?? defaultValue;
   }
 
+  Future<String?> getString(String key, {dynamic defaultValue}) async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+
+    return sp.getString(key) ?? defaultValue;
+  }
+
   /// delete all values saved
   Future clear() async {
     SharedPreferences sp = await SharedPreferences.getInstance();

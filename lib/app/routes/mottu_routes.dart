@@ -1,10 +1,11 @@
-
 import 'package:com_mottu_marvel/app/controller.dart';
+import 'package:com_mottu_marvel/features/home/domain/entities/marvel_arguments.dart';
+import 'package:com_mottu_marvel/presenter/home/ui/content_detail.dart';
 import 'package:flutter/material.dart';
 import 'routes.dart';
 
 Widget initialPage(RouteSettings routeSettings, Controller controller) {
-  Widget initialPage = const HomeView();
+  Widget initialPage = const DashboardView();
 
   return initialPage;
 }
@@ -25,9 +26,14 @@ Widget getPage(RouteSettings routeSettings, Controller controller) {
   switch (routeSettings.name) {
     case '/':
       return initialPage(routeSettings, controller);
-    case HomeView.routeName:
-      return const HomeView();
-   
+    case DashboardView.routeName:
+      return const DashboardView();
+    case ContentDetail.routeName:
+      final marvelArguments = routeSettings.arguments as MarvelArguments;
+      return ContentDetail(
+        marvelResponseEntity: marvelArguments.marvelResponseEntity,
+        index: marvelArguments.index,
+      );
     default:
       return const AppUnknowView();
   }

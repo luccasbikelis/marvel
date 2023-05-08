@@ -1,58 +1,66 @@
-import 'package:com_mottu_marvel/design_system/colors/ds_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:com_mottu_marvel/design_system/colors/ds_colors.dart';
 
 class FilterWidget extends StatefulWidget {
-  const FilterWidget({super.key});
+  final ValueChanged<String> onFilterChanged;
+
+  const FilterWidget({Key? key, required this.onFilterChanged}) : super(key: key);
 
   @override
   State<FilterWidget> createState() => _FilterWidgetState();
 }
 
 class _FilterWidgetState extends State<FilterWidget> {
-  final TextEditingController _searchController = TextEditingController();
+  late final TextEditingController _searchController;
+
+  @override
+  void initState() {
+    super.initState();
+    _searchController = TextEditingController();
+    _searchController.addListener(_onSearchTextChanged);
+  }
 
   @override
   void dispose() {
+    _searchController.removeListener(_onSearchTextChanged);
     _searchController.dispose();
     super.dispose();
+  }
+
+  void _onSearchTextChanged() {
+    widget.onFilterChanged(_searchController.text);
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 46,
-      width: double.infinity,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
         color: DSColors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Color(0xffDDDDDD),
-            offset: Offset(0.0, 0.0),
-            spreadRadius: 2.0,
-            blurRadius: 6.0,
-          ),
-        ],
       ),
-      child: Row(
-        children:  [
-          const SizedBox(
-            width: 10,
-          ),
-         const Icon(Icons.search, size: 18),
-         const SizedBox(
-            width: 10,
-          ),
-          Expanded(
-            child: TextField(
-              controller: _searchController,
-              decoration:const InputDecoration(
-                hintText: 'Pesquisar',
-                border: InputBorder.none,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Row(
+          children: [
+            Expanded(
+              child: TextField(
+                controller: _searchController,
+                decoration: const InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Pesquisar personagem...',
+                ),
               ),
             ),
-          ),
-        ],
+            IconButton(
+              icon: const Icon(Icons.clear),
+              onPressed: () {
+                setState(() {
+                  _searchController.clear();
+                });
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

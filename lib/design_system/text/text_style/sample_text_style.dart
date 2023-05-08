@@ -29,13 +29,18 @@ class SampleTextStyle {
 
   factory SampleTextStyle.cardTitle() => SampleTextStyle(
         fontFamily: FontFamily().roboto,
-        fontWeight: sample_font_weight.FontWeight().fontWeightRegular,
-        fontSize: FontSize().fontSizeHeading14,
+        fontWeight: sample_font_weight.FontWeight().fontWeightBold,
+        fontSize: FontSize().fontSizeHeading20,
       );
 
   factory SampleTextStyle.cardDescription() => SampleTextStyle(
         fontFamily: FontFamily().roboto,
-        fontWeight: sample_font_weight.FontWeight().fontWeightBold,
+        fontWeight: sample_font_weight.FontWeight().fontWeightRegular,
+        fontSize: FontSize().fontSizeHeading16,
+      );
+      factory SampleTextStyle.buttonTitle() => SampleTextStyle(
+        fontFamily: FontFamily().roboto,
+        fontWeight: sample_font_weight.FontWeight().fontWeightSemiBold,
         fontSize: FontSize().fontSizeHeading16,
       );
 }
