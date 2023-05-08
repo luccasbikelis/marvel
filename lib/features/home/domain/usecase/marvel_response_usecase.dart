@@ -3,7 +3,7 @@ import 'package:com_mottu_marvel/features/home/domain/repository/marvel_response
 
 
 abstract class MarvelResponseUseCase {
-  Future<MarvelResponseEntity> call();
+  Future<MarvelResponseEntity> call({int offset = 0});
 }
 
 class MarvelResponseUseCaseImpl implements MarvelResponseUseCase {
@@ -12,7 +12,7 @@ class MarvelResponseUseCaseImpl implements MarvelResponseUseCase {
   MarvelResponseUseCaseImpl(this.repository);
 
   @override
-  Future<MarvelResponseEntity> call() async {
-    return await repository();
+  Future<MarvelResponseEntity> call({int offset = 0}) async {
+    return await repository(offset: offset);
   }
 }

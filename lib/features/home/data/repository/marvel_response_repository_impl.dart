@@ -9,7 +9,7 @@ class MarvelResponseRepositoryImpl implements MarvelResponseRepository {
   MarvelResponseRepositoryImpl(this.dataSource);
 
   @override
-  Future<MarvelResponseEntity> call() async {
+  Future<MarvelResponseEntity> call({int offset = 0}) async {
     return await dataSource(fromJson: MarvelResponseModel.fromJson);
   }
 }

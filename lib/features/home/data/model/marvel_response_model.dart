@@ -16,12 +16,25 @@ class MarvelResponseModel extends MarvelResponseEntity implements Model {
     };
   }
 
+   Map<String, dynamic> toJson() {
+    return toMap();
+  }
+
   @override
   factory MarvelResponseModel.fromJson(Map<String, dynamic> json) {
     List<dynamic> charactersJson = json['data']['results'];
     List<CharacterModel> characters = charactersJson.map((character) => CharacterModel.fromJson(character)).toList();
     return MarvelResponseModel(listCharacters: characters);
   }
+
+   @override
+  factory MarvelResponseModel.fromSharedPreferencesJson(Map<String, dynamic> json) {
+    List<dynamic> charactersJson = json['listCharacters'];
+    List<CharacterModel> characters = charactersJson.map((character) => CharacterModel.fromSharedPreferencesJson(character)).toList();
+    return MarvelResponseModel(listCharacters: characters);
+  }
+
+  
 
   factory MarvelResponseModel.copy(MarvelResponseEntity marvelResponseEntity) {
     return MarvelResponseModel(

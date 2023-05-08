@@ -8,12 +8,15 @@ import 'package:com_mottu_marvel/features/home/domain/repository/marvel_response
 import 'package:com_mottu_marvel/features/home/domain/usecase/marvel_response_usecase.dart';
 import 'package:com_mottu_marvel/presenter/home/controllers/get_character.dart';
 import 'package:com_mottu_marvel/share/boundaries/http_connection/http_facade.dart';
+import 'package:com_mottu_marvel/share/boundaries/shared_preferences/shared_preferences_facade.dart';
 import 'package:get_it/get_it.dart';
 
-class HomeInjector {
+
+class DashboardInjector {
   final getIT = GetIt.I;
   call() {
 
+  GetIt.I.registerFactory<SharedPreferencesFacade>(() => SharedPreferencesFacade());
 
 // Marvel Response
  GetIt.I.registerLazySingleton<GetCharacterController>(() => GetCharacterController(
@@ -27,6 +30,7 @@ class HomeInjector {
         ));
     GetIt.I.registerFactory<MarvelResponseDataSource>(() => MarvelResponseDataSource(
           GetIt.I<HttpFacade>(),
+          GetIt.I<SharedPreferencesFacade>(),
         ));
 
   
