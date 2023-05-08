@@ -35,7 +35,7 @@ class SampleTextStyle {
 
   factory SampleTextStyle.cardDescription() => SampleTextStyle(
         fontFamily: FontFamily().roboto,
-        fontWeight: sample_font_weight.FontWeight().fontWeightRegular,
+        fontWeight: sample_font_weight.FontWeight().fontWeightBold,
         fontSize: FontSize().fontSizeHeading16,
       );
 }
