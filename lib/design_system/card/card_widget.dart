@@ -7,10 +7,12 @@ class CardWidget extends StatelessWidget {
   final double? heigth;
   final double? width;
   final Color? backgroundColor;
+  final String? description;
+  final String? image;
 
   /// child: A widget to set an child [Widget] on the center of the card.
   /// It's recommended to use a GridView to group multiples components [children]
-  const CardWidget({Key? key, this.heigth, this.width, this.backgroundColor}) : super(key: key);
+  const CardWidget({Key? key, this.heigth, this.width, this.backgroundColor, this.description, this.image}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +39,16 @@ class CardWidget extends StatelessWidget {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Container(height: 240, color: DSColors.gray),
+              Container(
+                height: 240,
+                color: DSColors.gray,
+                child: Image.network(image!),
+              ),
               const SizedBox(
                 height: 10,
               ),
-              BaseText(
-                  'A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações para testar e ajustar aspectos visuais antes de utilizar conteúdo real.',
+              BaseText(description!,
+                  // 'A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações para testar e ajustar aspectos visuais antes de utilizar conteúdo real.',
                   sampleTextStyle: SampleTextStyle.cardDescription().getStyle()),
             ],
           ),
