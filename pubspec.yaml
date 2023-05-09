@@ -69,13 +69,14 @@ flutter_native_splash:
   android_gravity: center
   ios_content_mode: center
 
-flutter_icons:
+flutter_launcher_icons:
   image_path: "assets/images/mottu_second_logo.png"
   ios: true
   remove_alpha_ios: true
   android: "launcher_icon"
   adaptive_icon_background: "#FFFFFF"
-  adaptive_icon_foreground: "assets/app/icon-android.png"
+  adaptive_icon_foreground: "assets/images/mottu_second_logo.png"
+  
 
   
 # For information on the generic Dart part of this file, see the
@@ -109,7 +110,19 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Black.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto-Medium.ttf
+        - asset: assets/fonts/Roboto-Regular.ttf
+          
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato-Black.ttf
+        - asset: assets/fonts/Lato-Medium.ttf
+        - asset: assets/fonts/Lato-Regular.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
