@@ -5,6 +5,7 @@ import 'package:com_mottu_marvel/design_system/mottu_button/mottu_button.dart';
 import 'package:com_mottu_marvel/design_system/text/base_text.dart';
 import 'package:com_mottu_marvel/design_system/text/text_style/sample_text_style.dart';
 import 'package:com_mottu_marvel/presenter/home/controllers/get_character_controller.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,7 +23,7 @@ class _DashboardViewState extends State<DashboardView> {
   final getCharacterController = GetIt.I<GetCharacterController>();
   late final SharedPreferences _sharedPreferences;
   int _itemCount = 5;
- String _searchText = '';
+  String _searchText = '';
   @override
   void initState() {
     getCharacterController.call();
@@ -54,7 +55,7 @@ class _DashboardViewState extends State<DashboardView> {
       ),
       body: Column(
         children: [
-           Padding(
+          Padding(
             padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
             child: FilterWidget(
               onFilterChanged: (searchText) {
@@ -72,16 +73,12 @@ class _DashboardViewState extends State<DashboardView> {
                 valueListenable: getCharacterController.marvelResponseListenable,
                 builder: (context, snapshot, _) {
                   final character = snapshot;
-                  
 
                   if (character == null) {
                     return const SizedBox.shrink();
                   }
-final filteredCharacters = character.listCharacters
-  .where((c) => c.name.toLowerCase().contains(_searchText.toLowerCase()))
-  .toList();
+                  final filteredCharacters = character.listCharacters.where((c) => c.name.toLowerCase().contains(_searchText.toLowerCase())).toList();
 
-                  
                   return ListView.builder(
                       itemCount: _itemCount,
                       itemBuilder: (context, index) {
@@ -125,6 +122,9 @@ final filteredCharacters = character.listCharacters
   }
 
   Future<void> _showMoreItems(BuildContext context) async {
+    //teste funcionalidade firebase crashlytics
+    
+    // FirebaseCrashlytics.instance.crash();
     if (_itemCount >= getCharacterController.marvelResponseListenable.value!.listCharacters.length) {
       _showErrorDialog(context);
     } else {
