@@ -52,70 +52,76 @@ class _DashboardViewState extends State<DashboardView> {
         ),
         backgroundColor: DSColors.white,
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
-            child: FilterWidget(
-              onFilterChanged: (searchText) {
-                setState(() {
-                  _searchText = searchText;
-                });
-              },
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(image: AssetImage('assets/images/marvel_icon.jpeg'), fit: BoxFit.cover, opacity: 0.5),
+        ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+              child: FilterWidget(
+                onFilterChanged: (searchText) {
+                  setState(() {
+                    _searchText = searchText;
+                  });
+                },
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Expanded(
-            child: ValueListenableBuilder(
-                valueListenable: getCharacterController.marvelResponseListenable,
-                builder: (context, snapshot, _) {
-                  final character = snapshot;
+            const SizedBox(
+              height: 10,
+            ),
+            Expanded(
+              child: ValueListenableBuilder(
+                  valueListenable: getCharacterController.marvelResponseListenable,
+                  builder: (context, snapshot, _) {
+                    final character = snapshot;
 
-                  if (character == null) {
-                    return const SizedBox.shrink();
-                  }
-                  final filteredCharacters = character.listCharacters.where((c) => c.name.toLowerCase().contains(_searchText.toLowerCase())).toList();
+                    if (character == null) {
+                      return const SizedBox.shrink();
+                    }
+                    final filteredCharacters =
+                        character.listCharacters.where((c) => c.name.toLowerCase().contains(_searchText.toLowerCase())).toList();
 
-                  return ListView.builder(
-                      itemCount: _itemCount,
-                      itemBuilder: (context, index) {
-                        if (index >= filteredCharacters.length) {
-                          return const SizedBox.shrink();
-                        }
+                    return ListView.builder(
+                        itemCount: _itemCount,
+                        itemBuilder: (context, index) {
+                          if (index >= filteredCharacters.length) {
+                            return const SizedBox.shrink();
+                          }
 
-                        if (index == _itemCount - 1) {
-                          return Padding(
-                            padding: const EdgeInsets.only(top: 34, bottom: 24),
-                            child: MottuButton(
-                              padding: const EdgeInsets.only(
-                                left: 120,
-                                right: 120,
+                          if (index == _itemCount - 1) {
+                            return Padding(
+                              padding: const EdgeInsets.only(top: 34, bottom: 24),
+                              child: MottuButton(
+                                padding: const EdgeInsets.only(
+                                  left: 120,
+                                  right: 120,
+                                ),
+                                text: 'Mostrar mais',
+                                textColor: DSColors.black,
+                                onTap: () async {
+                                  await _showMoreItems(context);
+                                },
                               ),
-                              text: 'Mostrar mais',
-                              textColor: DSColors.black,
-                              onTap: () async {
-                                await _showMoreItems(context);
-                              },
-                            ),
-                          );
-                        } else {
-                          final fullIndex = character.listCharacters.indexOf(filteredCharacters[index]);
-                          return Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: CardWidget(
-                              marvelResponseEntity: character,
-                              index: fullIndex,
-                              name: filteredCharacters[index].name,
-                              image: filteredCharacters[index].thumbnailUrl,
-                            ),
-                          );
-                        }
-                      });
-                }),
-          ),
-        ],
+                            );
+                          } else {
+                            final fullIndex = character.listCharacters.indexOf(filteredCharacters[index]);
+                            return Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: CardWidget(
+                                marvelResponseEntity: character,
+                                index: fullIndex,
+                                name: filteredCharacters[index].name,
+                                image: filteredCharacters[index].thumbnailUrl,
+                              ),
+                            );
+                          }
+                        });
+                  }),
+            ),
+          ],
+        ),
       ),
     );
   }

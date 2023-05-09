@@ -70,12 +70,12 @@ flutter_native_splash:
   ios_content_mode: center
 
 flutter_launcher_icons:
-  image_path: "assets/images/mottu_second_logo.png"
+  image_path: "assets/images/marvel_icon.jpeg"
   ios: true
   remove_alpha_ios: true
   android: "launcher_icon"
   adaptive_icon_background: "#FFFFFF"
-  adaptive_icon_foreground: "assets/images/mottu_second_logo.png"
+  adaptive_icon_foreground: "assets/images/marvel_icon.jpeg"
   
 
   

@@ -12,7 +12,7 @@ class MottuButton extends StatefulWidget {
       this.onTap,
       this.enable = true,
       this.text,
-      this.color = DSColors.green,
+      this.color = Colors.red,
       this.textColor = DSColors.black,
       this.image,
       this.paddingImage,

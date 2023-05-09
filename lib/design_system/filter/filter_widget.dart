@@ -36,7 +36,7 @@ class _FilterWidgetState extends State<FilterWidget> {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: DSColors.white,
+        color: Colors.black,
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -44,11 +44,17 @@ class _FilterWidgetState extends State<FilterWidget> {
           children: [
             Expanded(
               child: TextField(
+                style: const TextStyle(
+                      color: DSColors.white,
+                    ),
                 controller: _searchController,
                 decoration: const InputDecoration(
-                  border: InputBorder.none,
-                  hintText: 'Pesquisar personagem...',
-                ),
+                  
+                    border: InputBorder.none,
+                    hintText: 'Pesquisar personagem...',
+                    hintStyle: TextStyle(
+                      color: DSColors.white,
+                    )),
               ),
             ),
             IconButton(
