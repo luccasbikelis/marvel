@@ -34,7 +34,7 @@ class CardWidget extends StatelessWidget {
           width: width ?? double.infinity,
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(10)),
-            color: backgroundColor ?? DSColors.white,
+            color: backgroundColor ?? Colors.red,
             boxShadow: const [
               BoxShadow(
                 color: Color(0xffDDDDDD),
@@ -44,21 +44,25 @@ class CardWidget extends StatelessWidget {
               ),
             ],
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              children: [
-                Container(
-                  height: 240,
-                  color: DSColors.gray,
-                  child: Image.network(image!),
+          child: Column(
+            children: [
+              Container(
+                height: 240,
+                color: DSColors.gray,
+                child: Image.network(
+                  image!,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                BaseText(name!, sampleTextStyle: SampleTextStyle.cardDescription().getStyle(color: DSColors.black)),
-              ],
-            ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              BaseText(name!, sampleTextStyle: SampleTextStyle.cardDescription().getStyle(color: DSColors.white)),
+              const SizedBox(
+                height: 20,
+              ),
+            ],
           ),
         ),
       );

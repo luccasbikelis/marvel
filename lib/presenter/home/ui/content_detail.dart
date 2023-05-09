@@ -42,7 +42,11 @@ class _ContentDetailState extends State<ContentDetail> {
               height: 240,
               width: double.infinity,
               color: DSColors.gray,
-              child: Image.network(widget.marvelResponseEntity.listCharacters[widget.index].thumbnailUrl),
+              child: Image.network(
+                widget.marvelResponseEntity.listCharacters[widget.index].thumbnailUrl,
+                fit: BoxFit.cover,
+                width: double.infinity,
+              ),
             ),
             const SizedBox(height: 16),
             //CARD NAME
