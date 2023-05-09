@@ -5,7 +5,6 @@ import 'package:com_mottu_marvel/design_system/mottu_button/mottu_button.dart';
 import 'package:com_mottu_marvel/design_system/text/base_text.dart';
 import 'package:com_mottu_marvel/design_system/text/text_style/sample_text_style.dart';
 import 'package:com_mottu_marvel/presenter/home/controllers/get_character_controller.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -49,7 +48,7 @@ class _DashboardViewState extends State<DashboardView> {
         centerTitle: true,
         title: BaseText(
           'Mottu Marvel',
-          sampleTextStyle: SampleTextStyle.cardDescription().getStyle(color: DSColors.black),
+          sampleTextStyle: SampleTextStyle.cardTitle().getStyle(color: DSColors.black),
         ),
         backgroundColor: DSColors.white,
       ),
@@ -123,7 +122,7 @@ class _DashboardViewState extends State<DashboardView> {
 
   Future<void> _showMoreItems(BuildContext context) async {
     //teste funcionalidade firebase crashlytics
-    
+
     // FirebaseCrashlytics.instance.crash();
     if (_itemCount >= getCharacterController.marvelResponseListenable.value!.listCharacters.length) {
       _showErrorDialog(context);
