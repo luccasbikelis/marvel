@@ -1,7 +1,7 @@
-import 'package:com_mottu_marvel/design_system/colors/ds_colors.dart';
-import 'package:com_mottu_marvel/design_system/text/base_text.dart';
-import 'package:com_mottu_marvel/design_system/text/text_style/sample_text_style.dart';
-import 'package:com_mottu_marvel/features/home/domain/entities/marvel_response_entity.dart';
+import 'package:marvel/design_system/colors/ds_colors.dart';
+import 'package:marvel/design_system/text/base_text.dart';
+import 'package:marvel/design_system/text/text_style/sample_text_style.dart';
+import 'package:marvel/features/home/domain/entities/marvel_response_entity.dart';
 import 'package:flutter/material.dart';
 
 class ContentDetail extends StatefulWidget {

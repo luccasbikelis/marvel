@@ -1,6 +1,6 @@
-import 'package:com_mottu_marvel/design_system/colors/ds_colors.dart';
-import 'package:com_mottu_marvel/design_system/text/base_text.dart';
-import 'package:com_mottu_marvel/design_system/text/text_style/sample_text_style.dart';
+import 'package:marvel/design_system/colors/ds_colors.dart';
+import 'package:marvel/design_system/text/base_text.dart';
+import 'package:marvel/design_system/text/text_style/sample_text_style.dart';
 import 'package:flutter/material.dart';
 
 class MottuButton extends StatefulWidget {

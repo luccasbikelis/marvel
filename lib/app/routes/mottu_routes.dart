@@ -1,6 +1,6 @@
-import 'package:com_mottu_marvel/app/controller.dart';
-import 'package:com_mottu_marvel/features/home/domain/entities/marvel_arguments.dart';
-import 'package:com_mottu_marvel/presenter/home/ui/content_detail.dart';
+import 'package:marvel/app/controller.dart';
+import 'package:marvel/features/home/domain/entities/marvel_arguments.dart';
+import 'package:marvel/presenter/home/ui/content_detail.dart';
 import 'package:flutter/material.dart';
 import 'routes.dart';
 

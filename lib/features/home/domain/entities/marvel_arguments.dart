@@ -1,4 +1,4 @@
-import 'package:com_mottu_marvel/features/home/domain/entities/marvel_response_entity.dart';
+import 'package:marvel/features/home/domain/entities/marvel_response_entity.dart';
 
 class MarvelArguments {
   final MarvelResponseEntity marvelResponseEntity;

@@ -1,4 +1,4 @@
-name: com_mottu_marvel
+name: marvel
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -62,8 +62,8 @@ dev_dependencies:
  
 
 flutter_native_splash:
-  image: "assets/images/mottu_second_logo.png"
-  color: "#a2ff00"
+  image: "assets/images/marvel_icon.jpeg"
+  color: "#FFFFFF"
   android: true
   ios: true
   android_gravity: center

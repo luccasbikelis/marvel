@@ -1,8 +1,8 @@
-import 'package:com_mottu_marvel/features/home/data/model/character_model.dart';
-import 'package:com_mottu_marvel/features/home/domain/entities/character.dart';
+import 'package:marvel/features/home/data/model/character_model.dart';
+import 'package:marvel/features/home/domain/entities/character.dart';
 
-import 'package:com_mottu_marvel/features/home/domain/entities/marvel_response_entity.dart';
-import 'package:com_mottu_marvel/share/base/model/model.dart';
+import 'package:marvel/features/home/domain/entities/marvel_response_entity.dart';
+import 'package:marvel/share/base/model/model.dart';
 
 class MarvelResponseModel extends MarvelResponseEntity implements Model {
   MarvelResponseModel({
@@ -16,7 +16,7 @@ class MarvelResponseModel extends MarvelResponseEntity implements Model {
     };
   }
 
-   Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson() {
     return toMap();
   }
 
@@ -27,14 +27,12 @@ class MarvelResponseModel extends MarvelResponseEntity implements Model {
     return MarvelResponseModel(listCharacters: characters);
   }
 
-   @override
+  @override
   factory MarvelResponseModel.fromSharedPreferencesJson(Map<String, dynamic> json) {
     List<dynamic> charactersJson = json['listCharacters'];
     List<CharacterModel> characters = charactersJson.map((character) => CharacterModel.fromSharedPreferencesJson(character)).toList();
     return MarvelResponseModel(listCharacters: characters);
   }
-
-  
 
   factory MarvelResponseModel.copy(MarvelResponseEntity marvelResponseEntity) {
     return MarvelResponseModel(
@@ -42,4 +40,3 @@ class MarvelResponseModel extends MarvelResponseEntity implements Model {
     );
   }
 }
-

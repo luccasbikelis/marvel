@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
-import 'package:com_mottu_marvel/dependency_injection/injector.dart';
-import 'package:com_mottu_marvel/firebase_options.dart';
+import 'package:marvel/dependency_injection/injector.dart';
+import 'package:marvel/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/widgets.dart';

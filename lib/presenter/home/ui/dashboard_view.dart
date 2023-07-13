@@ -1,10 +1,10 @@
-import 'package:com_mottu_marvel/design_system/card/card_widget.dart';
-import 'package:com_mottu_marvel/design_system/colors/ds_colors.dart';
-import 'package:com_mottu_marvel/design_system/filter/filter_widget.dart';
-import 'package:com_mottu_marvel/design_system/mottu_button/mottu_button.dart';
-import 'package:com_mottu_marvel/design_system/text/base_text.dart';
-import 'package:com_mottu_marvel/design_system/text/text_style/sample_text_style.dart';
-import 'package:com_mottu_marvel/presenter/home/controllers/get_character_controller.dart';
+import 'package:marvel/design_system/card/card_widget.dart';
+import 'package:marvel/design_system/colors/ds_colors.dart';
+import 'package:marvel/design_system/filter/filter_widget.dart';
+import 'package:marvel/design_system/mottu_button/mottu_button.dart';
+import 'package:marvel/design_system/text/base_text.dart';
+import 'package:marvel/design_system/text/text_style/sample_text_style.dart';
+import 'package:marvel/presenter/home/controllers/get_character_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -47,7 +47,7 @@ class _DashboardViewState extends State<DashboardView> {
       appBar: AppBar(
         centerTitle: true,
         title: BaseText(
-          'Mottu Marvel',
+          'Marvel',
           sampleTextStyle: SampleTextStyle.cardTitle().getStyle(color: DSColors.black),
         ),
         backgroundColor: DSColors.white,

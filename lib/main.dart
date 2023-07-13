@@ -1,5 +1,5 @@
-import 'package:com_mottu_marvel/app/app.dart';
-import 'package:com_mottu_marvel/app/controller.dart';
+import 'package:marvel/app/app.dart';
+import 'package:marvel/app/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 

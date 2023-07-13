@@ -1,6 +1,4 @@
-import 'package:com_mottu_marvel/share/base/exception/base_exception.dart';
-
-
+import 'package:marvel/share/base/exception/base_exception.dart';
 
 class HttpErrorException extends BaseException {
   late String message;

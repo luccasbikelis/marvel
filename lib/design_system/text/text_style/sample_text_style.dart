@@ -1,9 +1,9 @@
 //Acaso queira um style diferente, criar uma nova factory e criar uma classe para o respectivo texto na pasta "text" seguindo o exemplo das demais.
 
-import 'package:com_mottu_marvel/design_system/colors/ds_colors.dart';
-import 'package:com_mottu_marvel/design_system/text/text_style/typography/font.weigth.dart' as sample_font_weight;
-import 'package:com_mottu_marvel/design_system/text/text_style/typography/font_family.dart';
-import 'package:com_mottu_marvel/design_system/text/text_style/typography/font_size.dart';
+import 'package:marvel/design_system/colors/ds_colors.dart';
+import 'package:marvel/design_system/text/text_style/typography/font.weigth.dart' as sample_font_weight;
+import 'package:marvel/design_system/text/text_style/typography/font_family.dart';
+import 'package:marvel/design_system/text/text_style/typography/font_size.dart';
 
 import 'package:flutter/material.dart';
 
@@ -38,7 +38,7 @@ class SampleTextStyle {
         fontWeight: sample_font_weight.FontWeight().fontWeightRegular,
         fontSize: FontSize().fontSizeHeading16,
       );
-      factory SampleTextStyle.buttonTitle() => SampleTextStyle(
+  factory SampleTextStyle.buttonTitle() => SampleTextStyle(
         fontFamily: FontFamily().roboto,
         fontWeight: sample_font_weight.FontWeight().fontWeightSemiBold,
         fontSize: FontSize().fontSizeHeading16,

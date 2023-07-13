@@ -1,11 +1,10 @@
 import 'dart:convert';
-import 'package:com_mottu_marvel/features/home/data/model/character_model.dart';
-import 'package:com_mottu_marvel/features/home/data/model/marvel_response_model.dart';
-import 'package:com_mottu_marvel/features/home/domain/entities/marvel_response_entity.dart';
-import 'package:com_mottu_marvel/share/base/datasource/datasource.dart';
-import 'package:com_mottu_marvel/share/boundaries/http_connection/http_facade.dart';
-import 'package:com_mottu_marvel/share/boundaries/shared_preferences/shared_preferences_facade.dart';
-
+import 'package:marvel/features/home/data/model/character_model.dart';
+import 'package:marvel/features/home/data/model/marvel_response_model.dart';
+import 'package:marvel/features/home/domain/entities/marvel_response_entity.dart';
+import 'package:marvel/share/base/datasource/datasource.dart';
+import 'package:marvel/share/boundaries/http_connection/http_facade.dart';
+import 'package:marvel/share/boundaries/shared_preferences/shared_preferences_facade.dart';
 
 class MarvelResponseDataSource implements DataSource {
   final HttpFacade httpFacade;
@@ -22,7 +21,6 @@ class MarvelResponseDataSource implements DataSource {
     // Verifica se existe um valor armazenado para a chave 'marvel_characters'
     final cachedValue = await sharedPreferences.getString('marvel_characters');
     if (cachedValue != null) {
-
       final listCharacters = MarvelResponseModel.fromSharedPreferencesJson(json.decode(cachedValue));
       return listCharacters;
     }
@@ -35,7 +33,7 @@ class MarvelResponseDataSource implements DataSource {
 
     // Armazena o resultado no cache
     await sharedPreferences.set('marvel_characters', json.encode(listCharacters.toJson()));
-   
+
     return listCharacters;
   }
 }

@@ -1,7 +1,6 @@
-import 'package:com_mottu_marvel/share/boundaries/connectivity/exception/unavailable_network_exception.dart';
-import 'package:com_mottu_marvel/share/boundaries/connectivity/has_connectivity_facade.dart';
+import 'package:marvel/share/boundaries/connectivity/exception/unavailable_network_exception.dart';
+import 'package:marvel/share/boundaries/connectivity/has_connectivity_facade.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-
 
 class HasConnectivityFacadeImpl implements HasConnectivityFacade {
   final Connectivity connectivity;
@@ -18,8 +17,6 @@ class HasConnectivityFacadeImpl implements HasConnectivityFacade {
         return true;
       default:
         throw UnavailableNetworkException('');
-    } 
-
-    
+    }
   }
 }

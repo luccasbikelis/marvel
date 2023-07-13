@@ -1,6 +1,6 @@
-import 'package:com_mottu_marvel/share/boundaries/connectivity/has_connectivity_facade.dart';
-import 'package:com_mottu_marvel/share/boundaries/http_connection/domain/domain.dart';
-import 'package:com_mottu_marvel/share/boundaries/http_connection/http_facade.dart';
+import 'package:marvel/share/boundaries/connectivity/has_connectivity_facade.dart';
+import 'package:marvel/share/boundaries/http_connection/domain/domain.dart';
+import 'package:marvel/share/boundaries/http_connection/http_facade.dart';
 import 'package:dio/dio.dart';
 import 'exception/exception_status/exception.dart';
 
@@ -18,12 +18,12 @@ class HttpFacadeImpl implements HttpFacade {
   @override
   call(HttpMethod method, String endPoint, {Map<String, dynamic>? params}) async {
     // if (await _hasConnectivity()) {
-      late String url;
+    late String url;
 
-      url = endPoint;
+    url = endPoint;
 
-      final options = await _getOptions();
-      return await _invoke(url, method, params: params, options: options);
+    final options = await _getOptions();
+    return await _invoke(url, method, params: params, options: options);
     // }
   }
 

@@ -1,5 +1,5 @@
-import 'package:com_mottu_marvel/share/boundaries/connectivity/has_connectivity_facade.dart';
-import 'package:com_mottu_marvel/share/boundaries/http_connection/domain/domain.dart';
+import 'package:marvel/share/boundaries/connectivity/has_connectivity_facade.dart';
+import 'package:marvel/share/boundaries/http_connection/domain/domain.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 

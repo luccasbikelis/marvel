@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:com_mottu_marvel/design_system/colors/ds_colors.dart';
+import 'package:marvel/design_system/colors/ds_colors.dart';
 
 class FilterWidget extends StatefulWidget {
   final ValueChanged<String> onFilterChanged;
@@ -45,11 +45,10 @@ class _FilterWidgetState extends State<FilterWidget> {
             Expanded(
               child: TextField(
                 style: const TextStyle(
-                      color: DSColors.white,
-                    ),
+                  color: DSColors.white,
+                ),
                 controller: _searchController,
                 decoration: const InputDecoration(
-                  
                     border: InputBorder.none,
                     hintText: 'Pesquisar personagem...',
                     hintStyle: TextStyle(

@@ -1,7 +1,6 @@
-
-import 'package:com_mottu_marvel/app/app.dart';
-import 'package:com_mottu_marvel/features/home/domain/entities/marvel_response_entity.dart';
-import 'package:com_mottu_marvel/features/home/domain/usecase/marvel_response_usecase.dart';
+import 'package:marvel/app/app.dart';
+import 'package:marvel/features/home/domain/entities/marvel_response_entity.dart';
+import 'package:marvel/features/home/domain/usecase/marvel_response_usecase.dart';
 
 import 'package:flutter/material.dart';
 
@@ -17,14 +16,8 @@ class GetCharacterController {
       final result = await marvelResponseUseCase(offset: offset);
       marvelResponseListenable.value = result;
     } catch (error) {
-      
       marvelResponseListenable.value = null;
     }
     setLoadState(false);
   }
-
-   
 }
-  
-
-

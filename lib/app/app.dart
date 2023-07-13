@@ -1,11 +1,9 @@
-import 'package:com_mottu_marvel/app/components/loading_provider.dart';
-import 'package:com_mottu_marvel/app/controller.dart';
-import 'package:com_mottu_marvel/app/routes/mottu_routes.dart';
+import 'package:marvel/app/components/loading_provider.dart';
+import 'package:marvel/app/controller.dart';
+import 'package:marvel/app/routes/mottu_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-
-
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
