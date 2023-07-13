@@ -1,4 +1,4 @@
-# mottu_marvel
+# marvel
 
 A new Flutter project.
 
